@@ -1,0 +1,42 @@
+README INSTALL PYTHON 3.11 from SOURCE FOR LINUX
+Install Python 3.11 from source, you can follow these steps on a Linux-based system.
+1. First, install some required packages:
+
+         sudo apt update
+         sudo apt install -y build-essential zlib1g-dev libncurses5-dev libgdbm-dev libnss3-dev libssl-dev libreadline-dev libffi-dev wget libbz2-dev libsqlite3-dev
+
+2. Download the Python source code:
+
+         wget https://www.python.org/ftp/python/3.11.0/Python-3.11.0.tgz
+
+3. Extract the downloaded package:
+
+         tar -xvf Python-3.11.0.tgz
+
+4. Change directory into the Python source folder:
+
+         cd Python-3.11.0
+
+5. Configure the build process:
+
+         ./configure --enable-optimizations
+
+6. Compile:
+
+         make -j 4  # Replace 4 with the number of cores you want to allocate for the build process
+
+9. Install Python: Note: Using altinstall prevents this version of Python from conflicting with the system version. You'll invoke this version specifically as python3.11.
+
+        sudo make altinstall
+
+
+10. After the installation process is complete, you can verify the Python version by running:
+
+        python3.11 --version
+
+If everything was successful, it should return Python 3.11.0. After installation, you might want to symlink python3.11 as python3 if you want it to be the default Python 3 version:
+11. Symlink python3
+
+        sudo ln -s /usr/local/bin/python3.11 /usr/local/bin/python3
+
+Caution: This will change the default python3 to point to python3.11. Make sure you know what you're doing as this can affect other applications that depend on python3.
